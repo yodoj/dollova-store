@@ -1,10 +1,15 @@
-<center><h1 style ="color:  #023e8a; background-color : #a2d2ff;">🧸Dollova Store🧸</h1></center>
+<!-- Nama website -->
+<center><h1 style ="color:  #023e8a; background-color : #a2d2ff;">🧸Dollova Store🧸</h1></center> 
 
+<!-- Design tulisan / web -->
 <style>
+    /* Design untuk welcoming greeting */
     h4{
         color: #6a4c93;
         text-align: center;
     }
+
+    /* Design untuk perintah name, price, etc. */
     h5 {
         color: #5158BB;
         font-weight: bold;
@@ -12,20 +17,24 @@
         text-align: center;
     }
 
+    /* Design untuk form isian name, price, etc. */
     p {
         font-size: 16px;
         text-align: center;
     }
 
+    /* Layout untuk gambar */
     img{
         margin: auto;
         display: block;
     }
 </style>
 
+<!-- Welcoming greeting -->
 <h4> Welcome to Dollova Store (˶ᵔ ᵕ ᵔ˶) , where every doll brings joy and smile 😸 </h4>
 <br>
 
+<!-- Loop untuk menampilkan gambar, product name, price, etc. -->
 {% for i in product %}
     {% if i.name == "Teddy bear" %}
         <img src="https://img.id.my-best.com/content_section/choice_component/contents/fb93c025d3dee6a5a7015beb391584b0.jpg?ixlib=rails-4.3.1&q=70&lossless=0&w=690&fit=max&s=07a68bcba1de3bbe7a46291631bbe68b" width="300" height="200">
@@ -44,6 +53,7 @@
     <p>{{ i.stock }}<p>
     <h5>Discount: </h5>
 
+    <!-- Tampilan untuk product yang ada discount dan tidak -->
     {% if i.discount == "No discount" %}
         <p style ="color: red;">{{ i.discount }}<p>
     {% else %}
