@@ -13,12 +13,14 @@ Pertama, saya menjalankan perintah python manage.py startapp main untuk membuat 
 **Melakukan routing pada proyek agar dapat menjalankan aplikasi main**
 Fungsi melakukan *routing* agar aplikasi dapat diakses dari web. Pertama, saya  melakukan konfigurasi *routing* URL aplikasi main. Saya membuat file urls.py pada direktori main yang berguna mengatur rute URL. saya menambahkan kode beritkut:
 
-```from django.urls import path
+```
+from django.urls import path
 from main.views import show_main
 app_name = 'main'
 urlpatterns = [
     path('', show_main, name='show_main'),
-]```
+]
+```
 
 Fungsinya:
 - impor path: mendefinisikan pola URL
