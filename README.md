@@ -54,12 +54,12 @@ Berikut adalah kode yang saya tambahkan pada views.py.
 - Terdapat return yang berfungsi untuk melakukan *render* tampilan main.html.
 Kemudian saya mengubah main.html dengan kode
 
-'''<h1>{{app_name}}</h1>
+''' <h1>{{app_name}}</h1>
 
 <h5>Name: </h5>
 <p>{{ name }}<p>
 <h5>Class: </h5>
-<p>{{ class }}<p>'''
+<p>{{ class }}<p> '''
 
 Sintaks kurung kurawal tersebut digunakan akan menampilkan variabel yang telah dideklarasikan di *context*. Variabel ini disebut juga *template variables*.
 
