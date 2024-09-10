@@ -1,6 +1,7 @@
 Tautan aplikasi pws: http://nadira-aliya-dollovastore.pbp.cs.ui.ac.id/
 
 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
 **Membuat sebuah proyek Django baru**
 Sebelum membuat proyek Django baru, saya menyiapkan direktori baru, yaitu dollova-store. Kemudian saya mengaktifkan *virtual environment* agar *package* dan *dependencies* dari aplikasi tidak bertabrakan dengan file-file yang ada di laptop. Lalu saya membuat file requirements.txt dan menambahkan beberapa *dependencies*. Kemudian saya *install dependencies* tersebut. Untuk membuat proyek django, saya menjalankan perintah 
 django-admin startproject mental_health_tracker .
@@ -11,23 +12,27 @@ Pertama, saya menjalankan perintah python manage.py startapp main untuk membuat 
 
 **Melakukan routing pada proyek agar dapat menjalankan aplikasi main**
 Fungsi melakukan *routing* agar aplikasi dapat diakses dari web. Pertama, saya  melakukan konfigurasi *routing* URL aplikasi main. Saya membuat file urls.py pada direktori main yang berguna mengatur rute URL. saya menambahkan kode beritkut:
-'''from django.urls import path
+'''
+from django.urls import path
 from main.views import show_main
 
 app_name = 'main'
 
 urlpatterns = [
     path('', show_main, name='show_main'),
-]''
+]
+'''
 Fungsinya:
-impor path: mendefinisikan pola URL
-show main dan modul main.views : tampilan URL
-app_name: nama unik pola URL
+- impor path: mendefinisikan pola URL
+- show main dan modul main.views : tampilan URL
+- app_name: nama unik pola URL
+
 Langkah selanjutnya saya mengofigurasi *routing* URL proyek dengan menambahkan *include* dari django.urls pada urls.py di direktori dollova_store. Kemudian saya menambahkan  path('', include('main.urls')) pada variabel urlpatterns untuk mengarahkan tampilan main.
 
 **Membuat model pada aplikasi main dengan nama Product dan memiliki atribut wajib**
 Model bertanggung jawab dalam mengelola data aplikasi. Berikut kode tambahan pada models.py yang saya berikan.
-'''class Product(models.Model):
+'''
+class Product(models.Model):
     name = models.CharField(max_length=255)
     price = models.IntegerField()
     description = models.TextField()
@@ -38,20 +43,21 @@ Model bertanggung jawab dalam mengelola data aplikasi. Berikut kode tambahan pad
 
 **Membuat sebuah fungsi pada views.py untuk dikembalikan ke dalam sebuah template HTML yang menampilkan nama aplikasi serta nama dan kelas kamu**
 Berikut adalah kode yang saya tambahkan pada views.py.
-'''def show_main(request):
+'''
+def show_main(request):
     context = {   
         'app_name':"Dollova Store", 
         'name':"Nadira Aliya Nashwa", 
         'class':'PBP C'
         }
-
     return render(request, "main.html", context)
     '''
 - Fungsi show_main mengatur *request* dan mengembalikan pada tampilan yang sesuai. 
 - *app_name, name*, dan *class* pada views.py adalah data-data yang disimpan pada *dictionary "context"*. 
 - Terdapat return yang berfungsi untuk melakukan *render* tampilan main.html.
 Kemudian saya mengubah main.html dengan kode
-'''<h1>{{app_name}}</h1>
+'''
+<h1>{{app_name}}</h1>
 
 <h5>Name: </h5>
 <p>{{ name }}<p>
