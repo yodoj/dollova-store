@@ -32,24 +32,28 @@ Langkah selanjutnya saya mengofigurasi *routing* URL proyek dengan menambahkan *
 **Membuat model pada aplikasi main dengan nama Product dan memiliki atribut wajib**
 Model bertanggung jawab dalam mengelola data aplikasi. Berikut kode tambahan pada models.py yang saya berikan.
 
-```class Product(models.Model):
+```
+class Product(models.Model):
     name = models.CharField(max_length=255)
     price = models.IntegerField()
     description = models.TextField()
-    stock = models.IntegerField()```
+    stock = models.IntegerField()
+```
 
 - Product adalah nama model yang didefinisikan
 - *name, price, description*, dan *stock* merupakan atribut model. Tipe data yang digunakan secara berurutan adalah *CharField, IntegerField,  TextField*, dan *IntegerField*.
 
 **Membuat sebuah fungsi pada views.py untuk dikembalikan ke dalam sebuah template HTML yang menampilkan nama aplikasi serta nama dan kelas kamu**
 Berikut adalah kode yang saya tambahkan pada views.py.
-```def show_main(request):
+```
+def show_main(request):
     context = {   
         'app_name':"Dollova Store", 
         'name':"Nadira Aliya Nashwa", 
         'class':'PBP C'
         }
-    return render(request, "main.html", context)```
+    return render(request, "main.html", context)
+```
 
 - Fungsi show_main mengatur *request* dan mengembalikan pada tampilan yang sesuai. 
 - *app_name, name*, dan *class* pada views.py adalah data-data yang disimpan pada *dictionary "context"*. 
@@ -61,7 +65,8 @@ Kemudian saya mengubah main.html dengan kode
 <h5>Name: </h5>
 <p>{{ name }}<p>
 <h5>Class: </h5>
-<p>{{ class }}<p>```
+<p>{{ class }}<p>
+```
 
 Sintaks kurung kurawal tersebut digunakan akan menampilkan variabel yang telah dideklarasikan di *context*. Variabel ini disebut juga *template variables*.
 
