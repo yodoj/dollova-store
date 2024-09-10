@@ -1,64 +1,6 @@
-<!-- Nama website -->
-<center><h1 style ="color:  #023e8a; background-color : #a2d2ff;">🧸Dollova Store🧸</h1></center> 
+<h1>{{app_name}}</h1>
 
-<!-- Design tulisan / web -->
-<style>
-    /* Design untuk welcoming greeting */
-    h4{
-        color: #6a4c93;
-        text-align: center;
-    }
-
-    /* Design untuk perintah name, price, etc. */
-    h5 {
-        color: #5158BB;
-        font-weight: bold;
-        font-size: 18px;
-        text-align: center;
-    }
-
-    /* Design untuk form isian name, price, etc. */
-    p {
-        font-size: 16px;
-        text-align: center;
-    }
-
-    /* Layout untuk gambar */
-    img{
-        margin: auto;
-        display: block;
-    }
-</style>
-
-<!-- Welcoming greeting -->
-<h4> Welcome to Dollova Store (˶ᵔ ᵕ ᵔ˶) , where every doll brings joy and smile 😸 </h4>
-<br>
-
-<!-- Loop untuk menampilkan gambar, product name, price, etc. -->
-{% for i in product %}
-    {% if i.name == "Teddy bear" %}
-        <img src="https://img.id.my-best.com/content_section/choice_component/contents/fb93c025d3dee6a5a7015beb391584b0.jpg?ixlib=rails-4.3.1&q=70&lossless=0&w=690&fit=max&s=07a68bcba1de3bbe7a46291631bbe68b" width="300" height="200">
-    {% elif i.name == "Barbie doll" %}
-        <img src="https://cdn.idntimes.com/content-images/community/2022/02/s-l1600-2459348630376aff54080e3b870f767d-2561d78183a86a4d65a4814d11ca964b.jpg" width="200" height="300">
-    {% elif i.name == "BT21 crochet doll" %}
-    <img src ="https://cdn.idntimes.com/content-images/community/2023/01/273545939-972630756700509-4687365284362482681-n-11zon-244c011caa90738d971410f797fee6dc-eab78f182489e570612123bfe91efcf5.jpg" width="200" height="300">
-    {% endif %}
-    <h5>Name: </h5>
-    <p>{{ i.name }}<p>
-    <h5>Price: </h5>
-    <p>{{ i.price }}<p>
-    <h5>Description: </h5>
-    <p>{{ i.description }}<p>
-    <h5>Stock: </h5>
-    <p>{{ i.stock }}<p>
-    <h5>Discount: </h5>
-
-    <!-- Tampilan untuk product yang ada discount dan tidak -->
-    {% if i.discount == "No discount" %}
-        <p style ="color: red;">{{ i.discount }}<p>
-    {% else %}
-        <p style ="color: green;">{{ i.discount }}<p>
-    {% endif %}
-    <br>  
-    <br>  
-{% endfor %} 
+<h5>Name: </h5>
+<p>{{ name }}<p>
+<h5>Class: </h5>
+<p>{{ class }}<p>

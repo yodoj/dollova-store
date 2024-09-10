@@ -2,8 +2,7 @@ from django.test import TestCase
 
 # Create your tests here.
 from django.test import TestCase, Client
-from django.utils import timezone
-from .models import MoodEntry
+from .models import Product
 
 class mainTest(TestCase):
     def test_main_url_is_exist(self):
@@ -18,12 +17,11 @@ class mainTest(TestCase):
         response = Client().get('/skibidi/')
         self.assertEqual(response.status_code, 404)
 
-    def test_strong_mood_user(self):
-        now = timezone.now()
-        mood = MoodEntry.objects.create(
-          mood="LUMAYAN SENANG",
-          time = now,
-          feelings = "senang sih, cuman tadi baju aku basah kena hujan :(",
-          mood_intensity = 8,
+    def test_product_name(self):
+        product = Product.objects.create(
+            name ="Teddy bear",
+            price = 100000,
+            description = "Cute and huggable teddy bear with premium materials for ultimaze coziness.",
+            stock = 8
         )
-        self.assertTrue(mood.is_mood_strong)
+        self.assertTrue(product)
