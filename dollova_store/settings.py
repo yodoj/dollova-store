@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-b_lzb11!%ga#tc^&am#%je@z!o1m6yxf_va26)bgcmb8(p9p62
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "nadira-aliya-dollovastore.pbp.cs.ui.ac.id"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "http://nadira-aliya-dollovastore.pbp.cs.ui.ac.id", "https://nadira-aliya-dollovastore.pbp.cs.ui.ac.id"]
 
 
 # Application definition
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'dollova_store.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
