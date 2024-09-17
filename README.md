@@ -1,5 +1,7 @@
 Tautan aplikasi pws: http://nadira-aliya-dollovastore.pbp.cs.ui.ac.id/
 
+**Essay Tugas 2**
+
 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
 **Membuat sebuah proyek Django baru**
@@ -108,3 +110,47 @@ pembelajaran pengembangan perangkat lunak?
 5. Mengapa model pada Django disebut sebagai ORM?
 
 Karena Django mengirimkan data sebagai ORM (*Object Relational Mapping*) agar dapat berkomunikasi secara mudah dengan basis data. Pada Django, models.py berguna sebagai penyedia data dari basis data.
+    
+
+**Essay Tugas 3**
+
+1.  Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
+
+*Data delivery* dibutuhkan dalam pengimplementasian suatu platform karena platform membutuhkan pertukaran data yang efisien sehingga data-data tersebut perlu dikirim dari satu *stack* ke *stack* lain agar platform dapat berfungsi secara optimal.
+
+2. Menurutmu, mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
+
+Menurut saya, keduanya memiliki keunggulan masing-masing. XML lebih cocok untuk menyimpan tipe data yang bervariasi karena XML lebih unggul dalam penyimpanan data yang efektif dan mudah dibaca mesin. XML sangat cocok digunakan pada data yang kompleks karena XML dapat memeriksa data secara efisien. Sedangkan JSON memiliki memiliki transmisi data yang cepat dan ukuran data lebih kecil dari XML sehingga JSON cocok digunakan untuk aplikasi seluler, API dan penyimpanan data. JSON menyediakan format pertukaran data yang lebih sederhana dan lebih cepat dalam komunikasi. JSON lebih populer dibandingkan XML karena JSON memiliki format yang lebih *readable* oleh manusia ataupun mesin. Selain itu, JSON merupakan *output* API umum dalam berbagai aplikasi dan bersifat independen dari semua bahasa pemrograman.
+
+3. Jelaskan fungsi dari method is_valid() pada form Django dan mengapa kita membutuhkan method tersebut?
+
+*Method* ```is_valid``` berfungsi sebagai validasi input data dari suatu *form*. *Method* ini dibutuhkan agar semua data yang diinput *user* sesuai aturan yang telah ditentukan, misalnya tipe data atau batasan lain. Hal ini untuk memastikan bahwa data yang diproses aman dan sesuai dengan kebutuhan aplikasi.
+
+4. Mengapa kita membutuhkan csrf_token saat membuat form di Django? Apa yang dapat terjadi jika kita tidak menambahkan csrf_token pada form Django? Bagaimana hal tersebut dapat dimanfaatkan oleh penyerang?
+```csrf_token``` berfungsi sebagai *security* yang dibuat secara otomatis oleh Django untuk melindungi keamanan data. Bila tidak ada ```csrf_token```, penyerang dapat memanfaatkan kelemahan ini seolah-olah *user* meminta **request* pada suatu *website* dan mengekseskusi permintaan tersebut. Setelah *user* login, biasanya penyerang melakukan *phishing* dalam memasang kode serangan CSRF dalam bentuk *link website* atau gambar yang dapat diklik. Setelah *link* ditekan *user*, terdapat perintah seperti mengganti *password*, perintah transfer, dan lain sebagainya.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+Saya membuat *skeleton* sebagai kerangka *views* dengan membuat base.html pada direktori templates. Agar berkas terdaftar sebagai *template*, saya menambahkan beberapa kode pada variabel TEMPLATES di settings.py. Selanjutnya, saya menambahkan UUID pada berkas models.py agar aplikasi berjalan dengan aman. Setelah itu melakukan migrasi model.
+
+Untuk membuat *input form*, saya membuat berkas forms.py pada direktori main dan melakukan *import* pada views.py untuk membuat dan menampilkan *form*. Kemudian membuat fungsi create_product_entry dan *entries* pada show_main supaya terlihat jika ada *request*. Agar fungsi dapat diakses, saya menambahkan *path* URL ke variabel *urlpattern* pada urls.py. Kemudian membuat create_product_entry.html dan menambahkan kode pada main.html untuk menampilkan *form* di web. 
+
+Pada views.py, saya menambahkan fungsi show_xml show_json, show_xml_by_id, dan show_json_by_id yang memiliki *return function* berupa HttpResponse untuk mengembalikan data dalam bentuk XML dan JSON serta mengembalikan data berdasarkan ID. Selanjutnya saya melaku *routing* URL dengan menambahkan *path* URL dari masing-masing fungsi ke *urlpatterns* di urls.py. Tujuannya agar fungsi-fungsi tersebut dapat terakses.
+
+Dalam mengakses URL dari masing-masing fungsi tersebut pada Postman, saya memastikan bahwa program sedang berjalan di *localhost*. Kemudian saya membuka aplikasi Postman dan membuat *request* baru dengan *method* GET. Lalu saya memasukkan dan mengirim URL masing-masing fungsi tersebut. Tujuannya untuk memastikan apakah data terkirim dengan baik. Misalnya http://localhost:8000/xml/ untuk semua data pada XML atau http://localhost:8000/json/[id] untuk data berdasarkan ID pada JSON. 
+
+***Screenshot***
+![alt text](<Screenshot (327).png>)
+
+![alt text](<Screenshot (328).png>)
+
+![alt text](<Screenshot (329).png>)
+
+![alt text](<Screenshot (330).png>)
+
+
+Sumber:
+
+JSON vs XML - difference between data representations - AWS. aws. (n.d.). https://aws.amazon.com/compare/the-difference-between-json-xml/ 
+
+Team. (2023, November 19). CSRF adalah: Pengertian, jenis dan cara mencegahnya. Coding Studio. https://codingstudio.id/blog/csrf-adalah/#Cara_Kerja_Serangan_CSRF 
