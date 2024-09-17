@@ -111,6 +111,7 @@ pembelajaran pengembangan perangkat lunak?
 
 Karena Django mengirimkan data sebagai ORM (*Object Relational Mapping*) agar dapat berkomunikasi secara mudah dengan basis data. Pada Django, models.py berguna sebagai penyedia data dari basis data.
     
+    
 
 **Essay Tugas 3**
 
@@ -127,6 +128,7 @@ Menurut saya, keduanya memiliki keunggulan masing-masing. XML lebih cocok untuk 
 *Method* ```is_valid``` berfungsi sebagai validasi input data dari suatu *form*. *Method* ini dibutuhkan agar semua data yang diinput *user* sesuai aturan yang telah ditentukan, misalnya tipe data atau batasan lain. Hal ini untuk memastikan bahwa data yang diproses aman dan sesuai dengan kebutuhan aplikasi.
 
 4. Mengapa kita membutuhkan csrf_token saat membuat form di Django? Apa yang dapat terjadi jika kita tidak menambahkan csrf_token pada form Django? Bagaimana hal tersebut dapat dimanfaatkan oleh penyerang?
+
 ```csrf_token``` berfungsi sebagai *security* yang dibuat secara otomatis oleh Django untuk melindungi keamanan data. Bila tidak ada ```csrf_token```, penyerang dapat memanfaatkan kelemahan ini seolah-olah *user* meminta **request* pada suatu *website* dan mengekseskusi permintaan tersebut. Setelah *user* login, biasanya penyerang melakukan *phishing* dalam memasang kode serangan CSRF dalam bentuk *link website* atau gambar yang dapat diklik. Setelah *link* ditekan *user*, terdapat perintah seperti mengganti *password*, perintah transfer, dan lain sebagainya.
 
 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
