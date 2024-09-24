@@ -156,3 +156,37 @@ Sumber:
 JSON vs XML - difference between data representations - AWS. aws. (n.d.). https://aws.amazon.com/compare/the-difference-between-json-xml/ 
 
 Team. (2023, November 19). CSRF adalah: Pengertian, jenis dan cara mencegahnya. Coding Studio. https://codingstudio.id/blog/csrf-adalah/#Cara_Kerja_Serangan_CSRF 
+
+
+
+**Essay Tugas 4**
+
+1. Apa perbedaan antara HttpResponseRedirect() dan redirect()
+
+Perbedaannya terletak pada argumennya. Pada HttpResponseRedirect(), argumennya hanya dapat berupa URL. Sedangkan redirect() dapat menerima argumen berupa model, *view*, atau URL. Redirect() juga dapat mengembalikan HttpResponseRedirect() sehingga redirect() lebih fleksibel.
+
+2.  Jelaskan cara kerja penghubungan model Product dengan User!
+
+Kita dapat menggunakan ForeignKey sebagai penghubung suatu model dan *user* melalui *relationship* antara *products* yang pasti terasosiasikan dengan seorang *user*. Kemudian mengisi *field user* dengan objek dari *request user* yang sedang terotorisasi. Selanjutnya kita dapat menyaring seluruh objek dengan hanya mengambil *products* dimana *field user* terisi dengan objek *user* yang sama dengan pengguna login pada waktu yang sama. Dengan demikian, hanya produk yang dimiliki oleh pengguna yang sedang login yang akan diambil.
+
+3. Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login? Jelaskan bagaimana Django mengimplementasikan kedua konsep tersebut.
+
+*Authentication* merupakan proses verifikasi identitas *user* saat login. Sedangkan *authorization* merupakan proses verifikasi halaman yang dapat diakses *user*. Pada Django, fungsi *authenticate* adalah fungsi bawaan Django yang dapat digunakan untuk melakukan *authentication* dan *authorization*. Saat pengguna login, sistem akan melakukan validasi pengguna yang berhak login terlebih dahulu. Saat pengguna berhasil login, sistem akan menentukan hak aksesnya.
+
+4. Bagaimana Django mengingat pengguna yang telah login? Jelaskan kegunaan lain dari cookies dan apakah semua cookies aman digunakan?
+
+Django mengingat pengguna yang telah login di *browser* melalui *session ID* yang disimpan sebagai *cookies*. Pada setiap login, *browser* mengirimkan suatu *session ID* ke server. Dengan begitu, setiap pengguna melakukan login, server akan mengingatnya. Kemudian server akan mencari informasi *state* di memori server atau *database* berdasarkan *session ID* yang didapat. Kegunaan dari *cookies* adalah sebagai memberikan konten yang lebih personal, mempermudah login, menampilkan iklan yang relevan, dan menyimpan pengaturan *website*. *Cookies* aman digunakan karena data yang disimpan tidak berubah dan tidak memperngaruhi perangkat. Namun, kita tetap harus berhati-hati tidak mengunjungi *website* yang mencurigakan karena *cookies* menyimpan data-data informasi login. 
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+Sebelumnya saya mengimport *form* untuk mensubmit data pengguna. Kemudian saya membuat fungsi register pada views.py dan membuat berkas register.html pada direktori templates. Lalu melakukan *routing* URL di urlpatterns pada urls.py yang ada di subdirektori main. Untuk membuat halaman login, saya mengimport *authenticate*, login, dan *AuthenticationForm* untuk melakukan autentikasi serta menambahkan fungsi login_user pada views.py. Kemudian membuat berkas login.html pada direktori templates serta melakukan *routing* URL. Saya menambahkan *import* login_required agar pengguna mengakses halaman login terlebih dahulu dan potongan kode `@login_required(login_url='/login')` agar halaman main hanya dapat diakses pengguna yang sudah login di views.py. Sama seperti fungsi-fungsi sebelumnya, untuk membuat fitur logout, saya mengimport logout dan menambahkan fungsi logout_user di views.py. Kemudian saya menambahkan *button* logout di main.html serta melakukan routing URL. Setelah melakukan implementasi registrasi, login, dan logout, saya menjalankan program dan membuat 2 akun pada halaman register di *localhost*. Setelah akun terbuat, saya membuat 3 produk pada masing-masing akun.
+
+Untuk menggunakan *cookies*, saya melakukan *import* HttpResponseRedirect, *reverse*, dan *datetime* pada views.py. Untuk melihat kapan terakhir login, saya mengganti beberapa kode pada blok if form.is_valid() di fungsi login_user. Tujuannya untuk menambahkan *cookie* berupa last_login. Pada fungsi show_main, saya menyisipkan last_login di variabel *context*. Tujuannya untuk menambahkan informasi *cookie* last_login. Kemudian saya mengubah kode pada fungsi logout_user agar saat pengguna logout, *cookie* akan terhapus. Kemudian menambahkan potongan kode pada main.html untuk menampilkan informasi *last login* di web.
+
+Untuk menghubungkan model dengan *user*, saya menambahkan beberapa kode pada models.py. Saya menggunakan ForeignKey sebagai penghubung suatu model dan *user* melalui *relationship* antara *products*. Lalu saya mengubah beberapa kode pada fungsi create_product_entry karena *field user* akan terisi dengan objek *user* dari request.user yang menandakan bahwa objek tersebut milik *user* yang sedang login. Untuk menampilkan objek produk dari pengguna yang sedang login, saya mengubah value product_entries dan *context* pada fungsi show_main di views.py. Selanjutnya, saya melakukan *migration*
+
+Sumber:
+
+https://stackoverflow.com/questions/13304149/what-the-difference-between-using-django-redirect-and-httpresponseredirect
+
+https://www.exabytes.co.id/blog/cookies-browser-adalah/
