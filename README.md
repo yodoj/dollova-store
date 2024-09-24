@@ -187,6 +187,6 @@ Untuk menghubungkan model dengan *user*, saya menambahkan beberapa kode pada mod
 
 Sumber:
 
-https://stackoverflow.com/questions/13304149/what-the-difference-between-using-django-redirect-and-httpresponseredirect
+StackOverflow. (2014). What the difference between using Django redirect and HttpResponseRedirect? Retrieved September 24, 2024, from https://stackoverflow.com/questions/13304149/what-the-difference-between-using-django-redirect-and-httpresponseredirect
 
-https://www.exabytes.co.id/blog/cookies-browser-adalah/
+Vivi, S. (2021). Cookies Browser: Fungsi, Keamanan, dan Cara Mengelolanya. Retrieved September 24, 2024, from https://www.exabytes.co.id/blog/cookies-browser-adalah/
