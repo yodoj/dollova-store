@@ -1,45 +1,46 @@
 {% extends 'base.html' %}
-{% block content %}
-<h1>{{app_name}}</h1>
+{% load static %}
 
-<h5>Name: </h5>
-<p>{{ name }}</p>
-<h5>Class: </h5>
-<p>{{ class }}</p>
+{% block meta %}
+<title>Dollova Store</title>
+{% endblock meta %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<div class="bg-rose-50 rounded-lg w-screen mx-0 p-8 mt-16">
+  <div class="flex flex-col">
+    <h1 class="text-6xl font-bold text-pink-700 mb-4">Welcome, {{ user.username }}</h1>
+    <h2 class="text-2xl text-purple-600 mb-6">Class of {{ class }}</h2>
+    <p class="text-gray-700">
+      Step into the magical world of Dollova Store! 🎀✨ Where every doll tells a story and brings joy to your heart! 🧸💖
+    </p>
+    <br/>
+  </div>
+  <div class="flex justify-end">
+    <div class="flex rounded-md items-center bg-gray-200 py-2 px-4 mt-4 w-fit">
+      <h1 class="text-gray-800 text-center">Last Login: {{last_login}}</h1>
+    </div>
+  </div>
+</div>
+
+<div class="flex justify-start ml-6 mb-6 mt-6">
+  <a href="{% url 'main:create_product_entry' %}" class="bg-rose-400 hover:bg-rose-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+    Add New Product Entry
+  </a>
+</div>
 
 {% if not product_entries %}
-<p>Belum ada data produk pada Dollova Store.</p>
+<div class="flex flex-col items-center justify-center min-h-[24rem] p-6">
+  <img src="{% static 'image/sedih-banget.png' %}" alt="Sad face" class="w-32 h-32 mb-4"/>
+  <p class="text-center text-gray-600 mt-4">Belum ada produk pada Dollova Store.</p>
+</div>
 {% else %}
-<table>
-  <tr>
-    <th>Product Name</th>
-    <th>Name</th>
-    <th>Price</th>
-    <th>Description</th>
-    <th>Stock</th>
-  </tr>
-
-  {% comment %} Berikut cara memperlihatkan data product di bawah baris ini 
-  {% endcomment %} 
+<div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6 w-full">
   {% for product_entry in product_entries %}
-  <tr>
-    <td>{{product_entry.name}}</td>
-    <td>{{product_entry.price}}</td>
-    <td>{{product_entry.description}}</td>
-    <td>{{product_entry.stock}}</td>
-  </tr>
+    {% include 'card_product.html' with product_entry=product_entry %}
   {% endfor %}
-</table>
+</div>
 {% endif %}
-
-<br />
-
-<a href="{% url 'main:create_product_entry' %}">
-  <button>Add New Product Entry</button>
-</a>
-
-<a href="{% url 'main:logout' %}">
-  <button>Logout</button>
-</a>
-<h5>Sesi terakhir login: {{ last_login }}</h5>
+</div>
 {% endblock content %}
