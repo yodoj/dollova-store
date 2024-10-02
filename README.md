@@ -217,7 +217,7 @@ Memiliki prioritas tertinggi karena ditujukan untuk satu elemen tertentu dan tid
 
 2. Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!
 
-Karena *responsive design*menyesuaikan ukuran layar secara otomatis di berbagai perangkat, seperti desktop, tablet, dan ponsel. Contohnya Facebook. Tampilan Facebook dapat menyesuaikan dengan baik pada berbagai ukuran layar, misalnya pada detskop ataupun ponsel.
+Karena *responsive design*menyesuaikan ukuran layar secara otomatis di berbagai perangkat, seperti desktop, tablet, dan ponsel. Contoh website yang responsif adalah Facebook. Tampilan Facebook dapat menyesuaikan dengan baik pada berbagai ukuran layar, misalnya pada detskop ataupun ponsel. Sedangkan website yang tidak responsif adalah SIAKNG karena jika SIAKNG dibuka di HP, layoutnya akan sesuai dengan ukuran layar laptop sehingga kita harus *zoom* saat menggunakan SIAKNG di HP.
 
 3. Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut! 
 
