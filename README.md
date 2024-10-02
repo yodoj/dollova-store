@@ -246,8 +246,6 @@ Pertama, untuk mengimplementasikan fitur edit dan *delete*, saya membuat fungsi 
 
 Referensi
 
-https://blogs.halodoc.io/best-practices-that-we-follow-to-avoid-specificity-issues/#:~:text=CSS%20specificity%20rule&text=Below%20are%20the%20order%20of,These%20selectors%20has%20lowest%20priority.
-
 Nufer, S. (2021, February 23). Understand margins, paddings, and Borders. How to Canvas. Retrieved Oktober 2, 2024, https://www.howtocanvas.com/create-amazing-pages-in-canvas/margins-and-padding 
 
 Pratama, M. A. (2021). Mengenal Flexbox Pada CSS. Retrieved Oktober 2, 2024, from https://www.gamelab.id/news/817-mengenal-flexbox-pada-css
