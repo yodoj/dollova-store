@@ -21,6 +21,7 @@ def show_main(request):
         'app_name':"Dollova Store", 
         'name': request.user.username,
         'class':'PBP C',
+        'npm':'2306165692',
         'product_entries' : product_entries,
         'last_login': request.COOKIES['last_login'],
         }

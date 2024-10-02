@@ -7,7 +7,7 @@
     <p class="font-normal text-purple-700 font-quicksand">{{ product_entry.description }}</p>
   </div>
   <div class="border-t-4 border-pink-300 pt-2"></div>
-  <p class="font-semibold text-lg text-green-600 mb-1">Stock: <span class="font-bold text-lg">{{ product_entry.stock }}</span></p> <!-- Warna font stok diubah menjadi hijau -->
+  <p class="font-semibold text-lg text-green-600 mb-1">Stock: <span class="font-bold text-lg">{{ product_entry.stock }}</span></p> 
   
   <div class="absolute bottom-[-1.5rem] right-4 flex space-x-1">
     <a href="{% url 'main:edit_product' product_entry.pk %}" class="bg-purple-300 hover:bg-purple-500 text-white rounded-full p-2 transition duration-300 shadow-lg">

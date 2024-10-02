@@ -190,3 +190,72 @@ Sumber:
 StackOverflow. (2014). What the difference between using Django redirect and HttpResponseRedirect? Retrieved September 24, 2024, from https://stackoverflow.com/questions/13304149/what-the-difference-between-using-django-redirect-and-httpresponseredirect
 
 Vivi, S. (2021). Cookies Browser: Fungsi, Keamanan, dan Cara Mengelolanya. Retrieved September 24, 2024, from https://www.exabytes.co.id/blog/cookies-browser-adalah/
+
+
+
+**Essay Tugas 5**
+
+1.  Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
+
+Urutan berdasarkan prioritas:
+
+- *Inline styles*
+
+Memiliki prioritas tertinggi karena ditujukan untuk satu elemen tertentu dan tidak dapat diubah oleh *stylesheet* eksternal.
+
+- *ID selectors*
+
+*ID selectors* dirancang untuk elemen yang unik dan berbeda dari elemen lainnya. Misalnya adalah judul utama.
+
+- *Classes selector*
+
+*Classes selector* dirancang untuk atribut *class*. *Selector* ini biasanya digunakan untuk mecptakan beberapa elemen dengan *style* yang sama.
+
+- *Element selector*
+
+*Selector* ini memiliki prioritas terakhir karena menargetkan semua elemen dengan jenis yang sama, sehingga dapat menyebabkan perubahan yang tidak diinginkan pada semua elemen tersebut.
+
+2. Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!
+
+Karena *responsive design*menyesuaikan ukuran layar secara otomatis di berbagai perangkat, seperti desktop, tablet, dan ponsel. Contohnya Facebook. Tampilan Facebook dapat menyesuaikan dengan baik pada berbagai ukuran layar, misalnya pada detskop ataupun ponsel.
+
+3. Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut! 
+
+- Margin: Ruang di luar elemen yang memisahkan elemen dari elemen lainnya.
+
+- *Border*: Garis yang mengelilingi elemen, terletak di antara margin dan *padding*.
+
+- *Padding*: Ruang di dalam elemen, antara konten dan *border*.
+
+Contoh implementasi:
+```html
+element {
+  margin: 20px;
+  border: 2px solid black;
+  padding: 10px;
+}
+```
+
+4. Jelaskan konsep flex box dan grid layout beserta kegunaannya!
+
+*Flex box* merupakan konsep *layout* CSS yang digunakan untuk mengatur elemen, *container*, dan *item* pada web. Sedangkan *grid Layout* adalah metode tata letak yang memungkinkan untuk menyusun elemen dalam baris dan kolom. Fungsinya untuk mengontrol posisi elemen dengan lebih fleksibel.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+
+Pertama, untuk mengimplementasikan fitur edit dan *delete*, saya membuat fungsi edit_product dan delete_product pada views.py. Lalu melakukan *routing* URL pada variabel urlpatterns di urls.py.Tujuannya agar edit dan *delete* ini dapat diakses di web. Kemudian membuat navbar.html pada folder templates untuk versi desktop dan *mobile* yang responsif. Lalu tambahkan tags *include* berupa {% include 'navbar.html' %} di create_product_entry.html, main.html, dan edit_product.html. Untuk mengkonfigurasi *static files* pada aplikasi, tambahkan *middleware* WhiteNoise pada settings.py. Setelah itu, saya mendesain login.html, register.html, create_product_entry.html, card_product.html, edit_product.html, card_info.html dan main.html dengan *tailwind*. Jika pada aplikasi belum ada product yang tersimpan, halaman daftar product akan menampilkan pesan belum ada produk yang terdaftar dan gambar sedih yang saya simpan di folder image pada static. 
+
+Referensi
+
+https://blogs.halodoc.io/best-practices-that-we-follow-to-avoid-specificity-issues/#:~:text=CSS%20specificity%20rule&text=Below%20are%20the%20order%20of,These%20selectors%20has%20lowest%20priority.
+
+Nufer, S. (2021, February 23). Understand margins, paddings, and Borders. How to Canvas. Retrieved Oktober 2, 2024, https://www.howtocanvas.com/create-amazing-pages-in-canvas/margins-and-padding 
+
+Pratama, M. A. (2021). Mengenal Flexbox Pada CSS. Retrieved Oktober 2, 2024, from https://www.gamelab.id/news/817-mengenal-flexbox-pada-css
+
+Revou. (n.d.). CSS Selectors: Jenis, Cara Membuat, dan Contoh. Retrieved Oktober 2, 2024, from https://revou.co/panduan-teknis/css-selectors
+
+Urmaliya, A. K. (2023, June 26). Importance of CSS specificity and its best practices. Halodoc Blog. Retrieved Oktober 2, 2024, https://blogs.halodoc.io/best-practices-that-we-follow-to-avoid-specificity-issues/#:~:text=CSS%20specificity%20rule&text=Below%20are%20the%20order%20of,These%20selectors%20has%20lowest%20priority. 
+
+W3School. (n.d.). CSS Grid Layout Module. Retrieved Oktober 2, 2024, from https://www.w3schools.com/CSS/css_grid.asp
+
+W3School. (n.d.). HTML Responsive Web Design. Retrieved Oktober 2, 2024, from https://www.w3schools.com/html/html_responsive.asp
