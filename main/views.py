@@ -118,7 +118,7 @@ def delete_product(request, id):
 @csrf_exempt
 @require_POST
 def add_product_entry_ajax(request):
-    name = strip_tags(request.POST.get("name"))
+    name = strip_tags(request.POST.get("product"))
     price = request.POST.get("price")
     description = strip_tags(request.POST.get("description"))
     stock = request.POST.get("stock")
