@@ -257,3 +257,55 @@ Urmaliya, A. K. (2023, June 26). Importance of CSS specificity and its best prac
 W3School. (n.d.). CSS Grid Layout Module. Retrieved Oktober 2, 2024, from https://www.w3schools.com/CSS/css_grid.asp
 
 W3School. (n.d.). HTML Responsive Web Design. Retrieved Oktober 2, 2024, from https://www.w3schools.com/html/html_responsive.asp
+
+**Essay Tugas 6**
+
+1.  Jelaskan manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web!
+
+Manfaat dari penggunaan JavaScript adalah halaman web dapat dimanipulasi secara dinamis dan dapat meningkatkan interaksi pengguna dengan halaman web. Beberapa contoh penggunaan JavaScript dalam pengembangan web yaitu:
+- Menyajikan informasi berdasarkan waktu
+- Validasi form atau data
+- Mengenali jenis perangkat pengguna
+- Membuat HTTP *cookies*
+- Merubah *styling* dan CSS suatu elemen secara dinamis.
+
+2. Jelaskan fungsi dari penggunaan await ketika kita menggunakan fetch()! Apa yang akan terjadi jika kita tidak menggunakan await?
+
+Fungsi *await* digunakan untuk menunggu hasil dari fungsi *async*. Fungsi *async* sendiri digunakan sebagai penanda fungsi yang mengembalikan nilai secara asinkronus. Secara umum, *fetch* digunakan dalam implementasi AJAX dengan XMLHttpRequest. Apabila tidak ada *await*, eksekusi akan terus berjalan tanpa menunggu proses dari fungsi *async*.  Artinya, fungsi *async* akan berjalan secara sinkron.
+
+3. Mengapa kita perlu menggunakan decorator csrf_exempt pada view yang akan digunakan untuk AJAX POST?
+
+Karena *decorator* csrf_exempt membuat keberadaan csrf_token tidak perlu diperiksa oleh Django saat pengiriman fungsi pada POST *request*. Csrf_token  akan menandani *view* sebagai pengecualian dari perlindungan CSRF (perlindungan yang dipastikan *middleware* di semua *view*). 
+
+4. Pada tutorial PBP minggu ini, pembersihan data input pengguna dilakukan di belakang (backend) juga. Mengapa hal tersebut tidak dilakukan di frontend saja?
+
+Pembersihan data perlu dilakukan pada *backend* karena *backend* berfokus pada keamanan data. Pada *backend*, data pengguna diproses dan disimpan. Jika pembersihan dilakukan pada *frontend* saja, data bisa dimanipulasi oleh pengguna yang memiliki niat buruk. Melakukan pembersihan data pada *backend* memastikan bahwa data yang diterima server aman dan tidak dapat dimodifikasi sebelum masuk ke sistem.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+
+Sebelumnya, saya menambahkan *error message* pada halaman login untuk memastikan pengguna yang login adalah pengguna yang sah. Untuk implementasi *AJAX GET*, pada views.py saya melakukan impor csrf_attempt agar Django tidak perlu memeriksa keberadaan csrf_token pada POST *request* yang dikirimkan dan impor require_POST agar fungsi hanya dapat diakses ketika POST *request* dikirimkan. Selanjutnya, saya membuat fungsi add_product_entry_ajax untuk menambahkan produk baru ke basis data dengan AJAX.
+
+Untuk melakukan pengambilan data produk, terdapat kode ``request.POST.get("product")`` pada fungsi tersebut yang digunakan untuk mengambil data produk dari pengguna yang telah login. Kemudian agar fungsi dapat diakses di web, saya melakukan *routing* URL dengan membuat *path* create-product-entry-ajax di variabel urlpatterns dan mengimpor add_product_entry_ajax pada urls.py. 
+
+Untuk mengubah kode *cards* data produk agar dapat mendukung AJAX GET, di HTML, saya membuat *block script* yang berisi fungsi getProductEntries yang menggunakan fetch() API ke data JSON secara asinkronus. Kemudian membuat fungsi refreshProduct untuk *refresh* data secara asinkronus. 
+
+Kemudian saya mengimplementasikan modal (*Tailwind*) dengan meletakkan beberapa kode di bawah id=product_entry_cards. Agar modal tersebut dapat berfungsi, saya menammbahkan fungsi-fungsi JavaScript yaitu showModal dan hideModal. Agar data dapat ditambahkan oleh pengguna, saya membuat sebuah tombol baru untuk penambahan data dengan AJAX.
+
+```
+ <button data-modal-target="crudModal" data-modal-toggle="crudModal" class="btn bg-rose-700 hover:bg-rose-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105" onclick="showModal();">
+    Add New Product Entry by AJAX
+  </button>
+  ```
+
+  Agar modal dapat digunakan, saya membuat fungsi JavaScript addProductEntry di main.html untuk menambahkan data berdasarkan *input* ke basis data. Pada fungsi tersebut, ```document.getElementById("productEntryForm").reset()``` digunakan untuk mengosongkan isi form modal setelah disubmit. Kemudian saya menambahkan *event listener* agar addProductEntry() dapat berjalan. 
+
+  Kemudian saya mengimpor strip_tags pada views.py dan forms.py dan menggunakan fungsi strip_tags tersebut pada nama produk dan deskripsi. Fungsi ini berguna agar data yang disimpan di basis data adalah data yang bersih dari tag HTML. Di forms.py pada *class* ProductEntryForm, saya menambahkan fungsi clean_name dan clean_description yang akan dipanggil dalam pengecekan create_product_entry dan edit_product. Ini berguna untuk menampilkan pesan error jika penambahan produk gagal. Untuk membersihkan data lama, saya menggunakan DOMPurify.
+
+
+
+
+Referensi
+
+Trinh, L. (2024, February 19). Declare an async function without await in JavaScript?. Medium.Retrieved October 8, 2024, https://medium.com/@louistrinh/declare-an-async-function-without-await-in-javascript-751ad86789f9 
+
+StackHawk. (2021, June 15). Defend your django app against CSRF. Retrieved October 8, 2024, https://www.stackhawk.com/blog/django-csrf-protection-guide/ 
